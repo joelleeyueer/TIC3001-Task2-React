@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -22,14 +23,36 @@ const Employee = ({ match, history }) => {
   if (!employee) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Employee Details</h1>
-      <p>Name: {employee.name}</p>
-      <p>Age: {employee.age}</p>
-      <p>Job Title: {employee.jobTitle}</p>
-      <p>Salary: {employee.salary}</p>
-      <Link to={`/edit/${employee.id}`}>Edit</Link> |{" "}
-      <button onClick={handleDelete}>Delete</button>
+    <div className="container mt-5">
+      <h1 className="mb-3">Employee Details</h1>
+      <div className="row">
+        <div className="col-md-6">
+          <p className="font-weight-bold">Name:</p>
+          <p>{employee.name}</p>
+        </div>
+        <div className="col-md-6">
+          <p className="font-weight-bold">Age:</p>
+          <p>{employee.age}</p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <p className="font-weight-bold">Job Title:</p>
+          <p>{employee.jobTitle}</p>
+        </div>
+        <div className="col-md-6">
+          <p className="font-weight-bold">Salary:</p>
+          <p>{employee.salary}</p>
+        </div>
+      </div>
+      <div className="mt-3">
+        <Link to={`/edit/${employee.id}`} className="btn btn-primary mr-3">
+          Edit
+        </Link>
+        <button onClick={handleDelete} className="btn btn-danger">
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

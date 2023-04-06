@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate, useMatch } from "react-router-dom";
@@ -51,52 +52,57 @@ const handleSubmit = (event) => {
 };
     
 return (
-    <div>
-        <h1>{isEditMode ? "Edit" : "Add"} Employee</h1>
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label>Name:</label>
-            <input
+    <div className="container">
+      <h1 className="my-4">{isEditMode ? "Edit Salary" : "Add Employee"}</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Name:</label>
+          <input
             type="text"
+            className="form-control"
             name="name"
             value={employee.name}
             onChange={handleChange}
-            />
+          />
         </div>
-        <div>
-            <label>Age:</label>
-            <input
+        <div className="form-group">
+          <label>Age:</label>
+          <input
             type="number"
+            className="form-control"
             name="age"
             value={employee.age}
             onChange={handleChange}
-            />
+          />
         </div>
-        <div>
-            <label>Job Title:</label>
-            <input
+        <div className="form-group">
+          <label>Job Title:</label>
+          <input
             type="text"
+            className="form-control"
             name="jobTitle"
             value={employee.jobTitle}
             onChange={handleChange}
-            />
+          />
         </div>
-        <div>
-            <label>Salary:</label>
-            <input
+        <div className="form-group">
+          <label>Salary:</label>
+          <input
             type="number"
+            className="form-control"
             name="salary"
             value={employee.salary}
             onChange={handleChange}
-            />
+          />
         </div>
-        <button type="submit">
-            {isEditMode ? "Update" : "Add"} Employee
+        <button type="submit" className="btn btn-primary mr-2">
+          {isEditMode ? "Update Salary" : "Add Employee"} 
         </button>
-        </form>
+      </form>
     </div>
-    );
+  );
 };
+  
     
 export default EmployeeForm;
     
